@@ -82,5 +82,3 @@ print("Downloaded to", OUT)
 Do not commit sensitive or PII-containing imagery to public repos. Use anonymized datasets or private cloud storage.
 
 ---
-
-If you want, I can commit `README.md` now (done) and also add `requirements.txt`, `.gitignore`, and `.gitattributes` — tell me to proceed and I will create them and show the git commands.
