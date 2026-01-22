@@ -1,0 +1,10 @@
+# Ignore the massive datasets
+deepglobe_raw/
+dataset/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Optional: Ignore the model if it is >100MB
+# carbon_bloom_model.pth
