@@ -32,16 +32,6 @@ python -m pip install streamlit pillow numpy opencv-python torch torchvision seg
 
 - If you need CUDA-enabled PyTorch, follow the official PyTorch install instructions to get the right wheel for your GPU.
 
-## Optional: Git LFS
-If you plan to commit large images, install Git LFS:
-
-```bash
-# Windows (Chocolatey)
-choco install git-lfs
-git lfs install
-# or follow https://git-lfs.github.com
-```
-
 ## Configuration
 - Place your trained model at `carbon_bloom_model.pth` in the project root.
 - Store images under `dataset/images/` if desired.
@@ -59,29 +49,6 @@ Open the URL printed by Streamlit (usually http://localhost:8501).
 - Uploaded images are preprocessed and passed through the model.
 - Thresholding uses the `AI Detection Power` slider, and `Nature Protection` shields green areas.
 - The app overlays detections, computes simple metrics (density, estimated surface temperature, CO₂ offset), and stores session history.
-
-## Committing Data to GitHub
-GitHub has a 100MB file limit. Recommended:
-- Use Git LFS for images/binaries.
-- Or host datasets externally (S3, Google Drive, Zenodo) and provide a downloader script.
-
-Example `.gitattributes` (create `.gitattributes`):
-```
-dataset/** filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-```
-
-Track and commit LFS:
-```bash
-git lfs install
-git lfs track "dataset/**"
-git add .gitattributes
-git add .
-git commit -m "Add project + dataset (LFS tracked)"
-git remote add origin https://github.com/<YOUR_USERNAME>/<REPO>.git
-git push -u origin main
-```
 
 If push fails due to large files, move offending files to LFS or host externally.
 
@@ -113,11 +80,6 @@ print("Downloaded to", OUT)
 
 ## Security & Privacy
 Do not commit sensitive or PII-containing imagery to public repos. Use anonymized datasets or private cloud storage.
-
-## Next Steps I Can Help With
-- Create and commit `requirements.txt`, `.gitignore`, and `.gitattributes`.
-- Add `01_download_data.py` and instructions for external hosting.
-- Prepare commits and show exact Git commands to push to GitHub.
 
 ---
 
